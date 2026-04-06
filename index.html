@@ -18,7 +18,6 @@
   <meta name="twitter:description" content="8+ years at Microsoft & Google. Distributed systems, reliability engineering, large-scale infrastructure.">
   <link rel="canonical" href="https://rishabhjain9196.github.io">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="shortcut icon" href="favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -57,6 +56,7 @@
 
     /* Text color inversions */
     html.light .text-white { color: #111 !important; }
+    html.light [style*="background"] .text-white { color: #fff !important; }
     html.light .text-\[\#ededed\] { color: #1a1a1a !important; }
     html.light .text-\[\#ccc\] { color: #333 !important; }
     html.light .text-\[\#aaa\],
@@ -893,6 +893,9 @@
         <div class="reveal">
           <h4 class="text-sm text-[#666] font-medium mb-4">Mentees Placed At</h4>
           <div class="flex flex-wrap gap-3">
+            <span class="px-4 py-2 text-sm rounded-xl bg-white/[0.02] border border-white/[0.06] text-[#aaa]">Amazon</span>
+            <span class="px-4 py-2 text-sm rounded-xl bg-white/[0.02] border border-white/[0.06] text-[#aaa]">Google</span>
+            <span class="px-4 py-2 text-sm rounded-xl bg-white/[0.02] border border-white/[0.06] text-[#aaa]">Microsoft</span>
             <span class="px-4 py-2 text-sm rounded-xl bg-white/[0.02] border border-white/[0.06] text-[#aaa]">ThoughtWorks</span>
             <span class="px-4 py-2 text-sm rounded-xl bg-white/[0.02] border border-white/[0.06] text-[#aaa]">Airbus</span>
             <span class="px-4 py-2 text-sm rounded-xl bg-white/[0.02] border border-white/[0.06] text-[#aaa]">Barracuda Networks</span>
@@ -976,7 +979,7 @@
           <div class="achievements-scroll pb-2">
             <div class="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-5 min-w-[320px] max-w-[350px] hover:border-white/[0.12] transition-all">
               <h4 class="text-base font-bold text-white mb-2">ConMan &mdash; Config Staleness Detection</h4>
-              <p class="text-[#888] text-xs mb-3 leading-relaxed">Stale-configuration detection system improving reliability and on-call debugging speeds. Microsoft Hackathon 2025.</p>
+              <p class="text-[#888] text-xs mb-3 leading-relaxed">Stale-configuration detection and drift prevention system improving reliability and on-call debugging speeds. Microsoft Hackathon 2025.</p>
               <div class="flex flex-wrap gap-1.5">
                 <span class="px-2 py-0.5 text-[10px] rounded-md bg-white/[0.05] text-[#888] border border-white/[0.08]">C#</span>
                 <span class="px-2 py-0.5 text-[10px] rounded-md bg-white/[0.05] text-[#888] border border-white/[0.08]">Kusto</span>
