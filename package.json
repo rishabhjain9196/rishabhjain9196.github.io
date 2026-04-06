@@ -1,0 +1,25 @@
+{
+  "name": "rishabhjain9196.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwindcss -i src/input.css -o styles.css --minify",
+    "dev": "tailwindcss -i src/input.css -o styles.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://rishabhjain9196@github.com/rishabhjain9196/rishabhjain9196.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/rishabhjain9196/rishabhjain9196.github.io/issues"
+  },
+  "homepage": "https://github.com/rishabhjain9196/rishabhjain9196.github.io#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}

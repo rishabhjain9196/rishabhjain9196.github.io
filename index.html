@@ -7,10 +7,13 @@
   <meta name="description" content="Senior Software Engineer with 8+ years at Microsoft and Google. Distributed systems, reliability engineering, and large-scale infrastructure.">
   <meta name="theme-color" content="#050505">
   <meta property="og:title" content="Rishabh Jain — Senior Software Engineer">
-  <meta property="og:description" content="8+ years at Microsoft & Google. Distributed systems, reliability engineering, large-scale infrastructure. Pursuing M.Sc. in ML & AI.">
+  <meta property="og:description" content="8+ years at Microsoft & Google. Distributed systems, reliability engineering, large-scale infrastructure. Pursuing MS in ML & AI.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rishabhjain9196.github.io">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://rishabhjain9196.github.io/images/og-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Rishabh Jain — Senior Software Engineer">
   <meta name="twitter:description" content="8+ years at Microsoft & Google. Distributed systems, reliability engineering, large-scale infrastructure.">
   <link rel="canonical" href="https://rishabhjain9196.github.io">
@@ -19,61 +22,22 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-            mono: ['JetBrains Mono', 'monospace'],
-          },
-        }
-      }
-    }
-  </script>
+  <link rel="stylesheet" href="styles.css">
   <style>
-    /* Light mode variables */
+    /* Theme variables (only properties referenced in styles below) */
     :root {
       --bg-primary: #050505;
-      --bg-card: rgba(255,255,255,0.02);
-      --bg-card-hover: rgba(255,255,255,0.06);
-      --border-card: rgba(255,255,255,0.06);
-      --border-hover: rgba(255,255,255,0.12);
       --text-primary: #ededed;
-      --text-secondary: #ccc;
-      --text-muted: #888;
-      --text-faint: #666;
-      --text-faintest: #555;
-      --text-divider: #333;
-      --accent: #3b82f6;
       --scrollbar-thumb: #333;
       --scrollbar-track: #050505;
-      --tag-bg: rgba(255,255,255,0.04);
-      --tag-text: #aaa;
-      --tag-border: rgba(255,255,255,0.06);
       --nav-bg: rgba(5,5,5,0.8);
       --grain-opacity: 0.4;
     }
     html.light {
       --bg-primary: #fafafa;
-      --bg-card: rgba(0,0,0,0.02);
-      --bg-card-hover: rgba(0,0,0,0.05);
-      --border-card: rgba(0,0,0,0.08);
-      --border-hover: rgba(0,0,0,0.15);
       --text-primary: #111;
-      --text-secondary: #333;
-      --text-muted: #555;
-      --text-faint: #777;
-      --text-faintest: #999;
-      --text-divider: #ddd;
-      --accent: #2563eb;
       --scrollbar-thumb: #ccc;
       --scrollbar-track: #fafafa;
-      --tag-bg: rgba(0,0,0,0.04);
-      --tag-text: #555;
-      --tag-border: rgba(0,0,0,0.08);
       --nav-bg: rgba(250,250,250,0.85);
       --grain-opacity: 0.15;
     }
@@ -84,21 +48,17 @@
       background: var(--nav-bg) !important;
       border-bottom-color: rgba(0,0,0,0.06);
     }
-    html.light ::-webkit-scrollbar-track { background: #fafafa; }
-    html.light ::-webkit-scrollbar-thumb { background: #ccc; }
 
-    /* ===== COMPREHENSIVE LIGHT MODE OVERRIDES ===== */
-    /* Body & selection */
-    html.light body { background: #fafafa; color: #1a1a1a; }
+    /* ===== LIGHT MODE OVERRIDES ===== */
     html.light ::selection { background: rgba(37,99,235,0.2); color: #111; }
 
-    /* All white text → dark */
+    /* Text color inversions */
     html.light .text-white { color: #111 !important; }
     html.light .text-\[\#ededed\] { color: #1a1a1a !important; }
     html.light .text-\[\#ccc\] { color: #333 !important; }
-    html.light .text-\[\#aaa\] { color: #555 !important; }
+    html.light .text-\[\#aaa\],
     html.light .text-\[\#999\] { color: #555 !important; }
-    html.light .text-\[\#888\] { color: #666 !important; }
+    html.light .text-\[\#888\],
     html.light .text-\[\#777\] { color: #666 !important; }
     html.light .text-\[\#666\] { color: #888 !important; }
     html.light .text-\[\#555\] { color: #999 !important; }
@@ -163,7 +123,8 @@
     /* Purple AI/ML accents */
     html.light .text-purple-400 { color: #7c3aed !important; }
     html.light .text-purple-300 { color: #8b5cf6 !important; }
-    html.light .border-purple-500\/\[0\.1\] { border-color: rgba(139,92,246,0.15) !important; }
+    html.light .border-purple-500\/\[0\.1\],
+    html.light .border-purple-500\/\[0\.12\] { border-color: rgba(139,92,246,0.15) !important; }
     html.light .border-purple-500\/\[0\.2\] { border-color: rgba(139,92,246,0.25) !important; }
     html.light .border-purple-500\/20 { border-color: rgba(139,92,246,0.2) !important; }
     html.light .bg-purple-500\/\[0\.06\] { background: rgba(139,92,246,0.06) !important; }
@@ -171,7 +132,6 @@
     html.light .from-purple-500\/\[0\.04\] { background: rgba(139,92,246,0.04) !important; }
     html.light .bg-purple-500\/10 { background: rgba(139,92,246,0.08) !important; }
     html.light .bg-purple-500\/15 { background: rgba(139,92,246,0.1) !important; }
-    html.light .border-purple-500\/\[0\.12\] { border-color: rgba(139,92,246,0.15) !important; }
 
     /* Indigo (Scaler) */
     html.light .text-indigo-400 { color: #4f46e5 !important; }
@@ -488,7 +448,7 @@
           Rishabh<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500">Jain</span>
         </h1>
         <p class="text-lg sm:text-xl text-[#888] max-w-2xl mx-auto mb-10 leading-relaxed">
-          Senior Software Engineer building <span class="text-[#ccc]">performant, large-scale distributed systems</span> that serve hundreds of millions of users. Currently pursuing <span class="text-[#ccc]">M.Sc. in Machine Learning &amp; AI</span>.
+          Senior Software Engineer building <span class="text-[#ccc]">performant, large-scale distributed systems</span> that serve hundreds of millions of users. Leveraging and building AI to solve real-world problems at scale.
         </p>
         <div class="flex items-center justify-center gap-4 mb-16">
           <!-- LinkedIn -->
@@ -556,17 +516,12 @@
               and <strong class="text-white">Google Workspace</strong>.
             </p>
             <p class="text-[#888] leading-relaxed mb-6">
-              I specialize in distributed systems, reliability engineering, failovers, resource governance, CPU/NUMA allocation, performance optimization, and encrypted document pipelines. Currently deepening my expertise in <strong class="text-white">Machine Learning &amp; AI</strong> through an M.Sc. at LJMU and Executive Diploma at IIIT Bangalore. I've delivered systems operating at global scale &mdash; 2.1B+ events/day, 250M+ users, and 50B+ documents.
+              I specialize in distributed systems, reliability engineering, failovers, resource governance, CPU/NUMA allocation, performance optimization, and encrypted document pipelines. Currently deepening my expertise in <strong class="text-white">Machine Learning &amp; AI</strong> through an MS at LJMU and Executive Diploma at IIIT Bangalore. I've delivered systems operating at global scale &mdash; 2.1B+ events/day, 250M+ users, and 50B+ documents.
             </p>
             <div class="flex flex-wrap items-center gap-3 text-sm text-[#666]">
               <span class="flex items-center gap-1.5">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
                 New Delhi, India
-              </span>
-              <span class="text-[#333]">&bull;</span>
-              <span class="flex items-center gap-1.5">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
-                +91-8744985115
               </span>
               <span class="text-[#333]">&bull;</span>
               <a href="mailto:rishabh.jain9196@gmail.com" class="flex items-center gap-1.5 hover:text-blue-400 transition-colors">
@@ -605,13 +560,7 @@
               </div>
               <span class="text-sm text-[#666] font-mono whitespace-nowrap">2024 &mdash; Present</span>
             </div>
-            <ul class="space-y-3 text-[#999] text-sm leading-relaxed mb-5">
-              <li class="flex gap-3"><span class="text-blue-500 mt-1 flex-shrink-0">&bull;</span><span>Optimizing resource usage via <strong class="text-[#ccc]">differential overbooking</strong> — maximizing performance and preventing failovers at minimum infrastructure cost.</span></li>
-              <li class="flex gap-3"><span class="text-blue-500 mt-1 flex-shrink-0">&bull;</span><span>Ownership of <strong class="text-[#ccc]">Failover KPIs</strong>: monitoring, pattern analysis, threshold setting, and bi-weekly reporting to leadership.</span></li>
-              <li class="flex gap-3"><span class="text-blue-500 mt-1 flex-shrink-0">&bull;</span><span>Designed <strong class="text-[#ccc]">NUMA-aware CPU allocation</strong> and implemented <strong class="text-[#ccc]">per-core CPU overbooking</strong> with staged rollouts and single-switch rollback.</span></li>
-              <li class="flex gap-3"><span class="text-blue-500 mt-1 flex-shrink-0">&bull;</span><span>Led <strong class="text-[#ccc]">Logical Master &rarr; Transparent Serverless</strong> migrations across multiple regions with idempotent scripts and OB ratio adjustments.</span></li>
-              <li class="flex gap-3"><span class="text-blue-500 mt-1 flex-shrink-0">&bull;</span><span>Enhanced failover telemetry with FM correlation, node GUID mapping, and LoginOutages integration. Completed ~10 on-call rotations.</span></li>
-            </ul>
+            <p class="text-[#999] text-sm leading-relaxed mb-5">Optimizing resource usage via <strong class="text-[#ccc]">differential overbooking</strong> and <strong class="text-[#ccc]">NUMA-aware CPU allocation</strong>; owning <strong class="text-[#ccc]">Failover KPIs</strong> with bi-weekly reporting to leadership; leading <strong class="text-[#ccc]">Logical Master &rarr; Transparent Serverless</strong> migrations across regions; and enhancing failover telemetry across ~10 on-call rotations.</p>
             <div class="flex flex-wrap gap-2">
               <span class="skill-tag px-3 py-1 text-xs rounded-full border border-white/[0.08] text-[#888]">C#</span>
               <span class="skill-tag px-3 py-1 text-xs rounded-full border border-white/[0.08] text-[#888]">.NET</span>
@@ -637,13 +586,7 @@
               </div>
               <span class="text-sm text-[#666] font-mono whitespace-nowrap">2021 &mdash; 2024</span>
             </div>
-            <ul class="space-y-3 text-[#999] text-sm leading-relaxed mb-5">
-              <li class="flex gap-3"><span class="text-[#4285f4] mt-1 flex-shrink-0">&bull;</span><span><strong class="text-[#ccc]">Led a team of 7 engineers</strong> to improve encrypted Sheets chunked import fidelity from <strong class="text-[#ccc]">93.3% &rarr; 100%</strong> and export reliability to <strong class="text-[#ccc]">99.99%+ across 50B+ documents</strong>.</span></li>
-              <li class="flex gap-3"><span class="text-[#4285f4] mt-1 flex-shrink-0">&bull;</span><span>Designed and implemented encrypted imports for <strong class="text-[#ccc]">Excel (.xlsx), Office binary (.xls), and Word (.docx)</strong> using web workers and client-side parsing.</span></li>
-              <li class="flex gap-3"><span class="text-[#4285f4] mt-1 flex-shrink-0">&bull;</span><span>Implemented encrypted document <strong class="text-[#ccc]">takeout</strong> in Excel format as part of Google's global wipeout compliance.</span></li>
-              <li class="flex gap-3"><span class="text-[#4285f4] mt-1 flex-shrink-0">&bull;</span><span>Profiled and optimized import/export pipelines to <strong class="text-[#ccc]">match server-side performance</strong>.</span></li>
-              <li class="flex gap-3"><span class="text-[#4285f4] mt-1 flex-shrink-0">&bull;</span><span>Conducted <strong class="text-[#ccc]">50+ interviews</strong>, mentored an intern, and delivered Women Engineers (WE) workshops.</span></li>
-            </ul>
+            <p class="text-[#999] text-sm leading-relaxed mb-5"><strong class="text-[#ccc]">Led 7 engineers</strong> to achieve 100% encrypted Sheets import fidelity and <strong class="text-[#ccc]">99.99%+ export reliability across 50B+ documents</strong>; designed encrypted imports for Excel, Office binary, and Word formats; implemented encrypted <strong class="text-[#ccc]">takeout</strong> for global wipeout compliance; conducted <strong class="text-[#ccc]">50+ interviews</strong> and mentored engineers.</p>
             <div class="flex flex-wrap gap-2">
               <span class="skill-tag px-3 py-1 text-xs rounded-full border border-white/[0.08] text-[#888]">Java</span>
               <span class="skill-tag px-3 py-1 text-xs rounded-full border border-white/[0.08] text-[#888]">Web Workers</span>
@@ -669,11 +612,7 @@
               </div>
               <span class="text-sm text-[#666] font-mono whitespace-nowrap">2018 &mdash; 2021</span>
             </div>
-            <ul class="space-y-3 text-[#999] text-sm leading-relaxed mb-5">
-              <li class="flex gap-3"><span class="text-blue-500 mt-1 flex-shrink-0">&bull;</span><span>Scaled notifications service to <strong class="text-[#ccc]">2.1B daily events</strong> as Teams grew from <strong class="text-[#ccc]">5M to 250M users</strong> &mdash; reduced partner network calls by <strong class="text-[#ccc]">60%</strong> and scaled Redis without downtime.</span></li>
-              <li class="flex gap-3"><span class="text-blue-500 mt-1 flex-shrink-0">&bull;</span><span>Added <strong class="text-[#ccc]">customer-level encryption</strong> in Azure Storage Queues; improved resiliency via <strong class="text-[#ccc]">stale caching</strong> and <strong class="text-[#ccc]">data-driven retry policies</strong>.</span></li>
-              <li class="flex gap-3"><span class="text-blue-500 mt-1 flex-shrink-0">&bull;</span><span>Implemented <strong class="text-[#ccc]">reaction, shared, and priority notifications</strong>; built analytics for tracking email open CTR via URL shorteners.</span></li>
-            </ul>
+            <p class="text-[#999] text-sm leading-relaxed mb-5">Scaled notifications to <strong class="text-[#ccc]">2.1B daily events</strong> as Teams grew from <strong class="text-[#ccc]">5M to 250M users</strong> &mdash; reduced partner network calls by <strong class="text-[#ccc]">60%</strong>; added <strong class="text-[#ccc]">customer-level encryption</strong>, stale caching, and data-driven retry policies; built reaction, shared, and priority notification features with email CTR analytics.</p>
             <div class="flex flex-wrap gap-2">
               <span class="skill-tag px-3 py-1 text-xs rounded-full border border-white/[0.08] text-[#888]">.NET Framework</span>
               <span class="skill-tag px-3 py-1 text-xs rounded-full border border-white/[0.08] text-[#888]">.NET Core</span>
@@ -873,7 +812,7 @@
               </div>
               <div class="text-sm font-mono text-blue-400">2025 &mdash; Present</div>
             </div>
-            <h3 class="text-lg font-bold text-white mb-1">M.Sc. Machine Learning &amp; AI</h3>
+            <h3 class="text-lg font-bold text-white mb-1">MS in Machine Learning &amp; AI</h3>
             <p class="text-[#888] text-sm">Liverpool John Moores University</p>
             <p class="text-[#555] text-xs mt-1">via UpGrad</p>
           </div>
@@ -1185,7 +1124,7 @@
           </div>
           <div class="flex flex-wrap gap-2">
             <a href="https://www.codechef.com/users/rishabh.jain9196" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 text-xs rounded-lg bg-white/[0.04] text-[#888] border border-white/[0.06] hover:text-blue-400 hover:border-blue-500/30 transition-all">CodeChef</a>
-            <a href="http://codeforces.com/profile/rishabh.jain9196" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 text-xs rounded-lg bg-white/[0.04] text-[#888] border border-white/[0.06] hover:text-blue-400 hover:border-blue-500/30 transition-all">Codeforces</a>
+            <a href="https://codeforces.com/profile/rishabh.jain9196" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 text-xs rounded-lg bg-white/[0.04] text-[#888] border border-white/[0.06] hover:text-blue-400 hover:border-blue-500/30 transition-all">Codeforces</a>
             <a href="https://www.hackerrank.com/rishabh_jain9196" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 text-xs rounded-lg bg-white/[0.04] text-[#888] border border-white/[0.06] hover:text-blue-400 hover:border-blue-500/30 transition-all">HackerRank</a>
           </div>
         </div>
@@ -1324,12 +1263,20 @@
       } else {
         document.documentElement.classList.remove('light');
       }
+      var label = mode === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
+      document.querySelectorAll('#theme-toggle, #theme-toggle-mobile').forEach(function(btn) {
+        btn.setAttribute('aria-label', label);
+      });
       try { localStorage.setItem('theme', mode); } catch(e) {}
     }
 
-    // Restore saved preference
-    const saved = localStorage.getItem('theme');
-    if (saved === 'light') setTheme('light');
+    // Restore saved preference (localStorage > OS preference > dark default)
+    var saved = localStorage.getItem('theme');
+    if (saved) {
+      setTheme(saved);
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+      setTheme('light');
+    }
 
     // Toggle handler (both desktop and mobile)
     document.querySelectorAll('#theme-toggle, #theme-toggle-mobile').forEach(btn => {
