@@ -13,11 +13,27 @@
   <meta property="og:image" content="https://rishabhjain9196.github.io/images/og-preview.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Rishabh Jain, Senior Software Engineer. Distributed systems, reliability and applied AI.">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://rishabhjain9196.github.io/images/og-preview.png">
+  <meta name="twitter:image:alt" content="Rishabh Jain, Senior Software Engineer. Distributed systems, reliability and applied AI.">
   <meta name="twitter:title" content="Rishabh Jain — Senior Software Engineer">
   <meta name="twitter:description" content="8+ years at Microsoft & Google. Distributed systems, reliability engineering, large-scale infrastructure.">
   <link rel="canonical" href="https://rishabhjain9196.github.io">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script>
+    (() => {
+      let savedTheme;
+      try {
+        savedTheme = localStorage.getItem('theme');
+      } catch (error) {
+        console.warn('The saved theme could not be read.', error);
+      }
+      const useLight = savedTheme === 'light'
+        || (savedTheme !== 'dark' && matchMedia('(prefers-color-scheme: light)').matches);
+      document.documentElement.classList.toggle('light', useLight);
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -42,6 +58,17 @@
     }
 
     body { background: var(--bg-primary); color: var(--text-primary); transition: background 0.3s, color 0.3s; }
+    html { scroll-padding-top: 88px; }
+    :focus-visible { outline: 3px solid #60a5fa; outline-offset: 4px; }
+    html.light :focus-visible { outline-color: #1d4ed8; }
+    .skip-link { position: fixed; top: -80px; left: 16px; z-index: 100; padding: 12px 20px; background: var(--bg-primary); color: var(--text-primary); }
+    .skip-link:focus { top: 12px; }
+    .navigation-ready #navbar { position: fixed; }
+    #mobile-menu { max-height: calc(100dvh - 72px); overflow-y: auto; }
+    .text-\[\#888\], .text-\[\#777\], .text-\[\#666\], .text-\[\#555\], .text-\[\#444\] { color: #9ca3af; }
+    .primary-button, html.light .primary-button { background: #1d4ed8; color: #fff !important; }
+    .primary-button:hover, html.light .primary-button:hover { background: #1e40af; }
+    .featured-card { min-width: 0; display: flex; flex-direction: column; }
     html.light .orb { opacity: 0.08; }
     html.light .nav-scrolled {
       background: var(--nav-bg) !important;
@@ -63,9 +90,9 @@
     html.light .text-\[\#999\] { color: #555 !important; }
     html.light .text-\[\#888\],
     html.light .text-\[\#777\] { color: #666 !important; }
-    html.light .text-\[\#666\] { color: #888 !important; }
-    html.light .text-\[\#555\] { color: #999 !important; }
-    html.light .text-\[\#444\] { color: #aaa !important; }
+    html.light .text-\[\#666\],
+    html.light .text-\[\#555\],
+    html.light .text-\[\#444\] { color: #595959 !important; }
     html.light .text-\[\#333\] { color: #ccc !important; }
 
     /* Nav & logo */
@@ -125,7 +152,7 @@
 
     /* Purple AI/ML accents */
     html.light .text-purple-400 { color: #7c3aed !important; }
-    html.light .text-purple-300 { color: #8b5cf6 !important; }
+    html.light .text-purple-300 { color: #6d28d9 !important; }
     html.light .border-purple-500\/\[0\.1\],
     html.light .border-purple-500\/\[0\.12\] { border-color: rgba(139,92,246,0.15) !important; }
     html.light .border-purple-500\/\[0\.2\] { border-color: rgba(139,92,246,0.25) !important; }
@@ -141,15 +168,16 @@
     html.light .bg-indigo-500\/10 { background: rgba(99,102,241,0.08) !important; }
 
     /* Other accent colors */
-    html.light .text-green-400 { color: #16a34a !important; }
+    html.light .text-green-400 { color: #15803d !important; }
+    html.light .text-emerald-400 { color: #047857 !important; }
     html.light .bg-green-500\/10 { background: rgba(22,163,74,0.06) !important; }
-    html.light .text-amber-400 { color: #d97706 !important; }
+    html.light .text-amber-400 { color: #92400e !important; }
     html.light .bg-amber-500\/10 { background: rgba(217,119,6,0.06) !important; }
-    html.light .text-yellow-400 { color: #ca8a04 !important; }
+    html.light .text-yellow-400 { color: #a16207 !important; }
     html.light .bg-yellow-500\/10 { background: rgba(202,138,4,0.06) !important; }
     html.light .text-gray-400 { color: #6b7280 !important; }
     html.light .bg-gray-500\/10 { background: rgba(107,114,128,0.06) !important; }
-    html.light .text-cyan-400 { color: #0891b2 !important; }
+    html.light .text-cyan-400 { color: #0e7490 !important; }
 
     /* Profile pic border */
     html.light .shadow-blue-500\/10 { box-shadow: 0 25px 50px -12px rgba(37,99,235,0.1) !important; }
@@ -306,13 +334,11 @@
 
     /* Scroll reveal */
     .reveal {
-      opacity: 0;
-      transform: translateY(30px);
       transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .reveal-pending {
+      opacity: 0;
+      transform: translateY(30px);
     }
 
     /* Stagger children */
@@ -355,13 +381,6 @@
     .company-kuliza::before { background: #f59e0b; }
     .company-hackerrank::before { background: #00ea64; }
 
-    /* Scroll indicator bounce */
-    @keyframes bounce-slow {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(8px); }
-    }
-    .bounce-slow { animation: bounce-slow 2s ease-in-out infinite; }
-
     /* Custom scrollbar */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--scrollbar-track); }
@@ -383,18 +402,27 @@
     .achievements-scroll::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 2px; }
     .achievements-scroll::-webkit-scrollbar-track { background: transparent; }
     .achievements-scroll > * { scroll-snap-align: start; flex-shrink: 0; }
+    @media (max-width: 639px) {
+      .achievements-scroll > * { min-width: 0; max-width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+      .reveal-pending { opacity: 1; transform: none; }
+      .orb { will-change: auto; }
+    }
   </style>
 </head>
 <body class="bg-[#050505] text-[#ededed] font-sans antialiased selection:bg-blue-500/30 selection:text-white">
+  <a class="skip-link" href="#main">Skip to content.</a>
 
   <!-- ============ NAVIGATION ============ -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <nav id="navbar" aria-label="Main navigation" class="relative top-0 left-0 right-0 z-50 transition-all duration-300">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="#hero" class="text-lg font-bold tracking-tight text-white hover:text-blue-400 transition-colors">
         RJ<span class="text-blue-500">.</span>
       </a>
       <!-- Desktop nav -->
-      <div class="hidden md:flex items-center gap-8 text-sm text-[#888]">
+      <div class="hidden lg:flex items-center gap-8 text-sm text-[#888]">
         <a href="#about" class="hover:text-white transition-colors">About</a>
         <a href="#experience" class="hover:text-white transition-colors">Experience</a>
         <a href="#skills" class="hover:text-white transition-colors">Skills</a>
@@ -404,19 +432,19 @@
         <a href="#achievements" class="hover:text-white transition-colors">Achievements</a>
         <a href="mailto:rishabh.jain9196@gmail.com" class="px-4 py-2 bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/20 hover:bg-blue-500/20 transition-all">Contact</a>
         <!-- Theme toggle -->
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle theme">
+        <button id="theme-toggle" class="theme-toggle hidden" aria-label="Toggle light/dark mode" title="Toggle theme">
           <svg class="theme-icon-moon" fill="none" stroke="#facc15" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
           <svg class="theme-icon-sun" fill="none" stroke="#3b82f6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
         </button>
       </div>
       <!-- Mobile toggle -->
-      <button id="menu-toggle" class="md:hidden text-white p-2" aria-label="Toggle menu">
+      <button id="menu-toggle" class="hidden lg:hidden text-white p-2" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu">
         <svg id="menu-open-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
         <svg id="menu-close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
     </div>
     <!-- Mobile menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-[#050505]/95 backdrop-blur-xl border-t border-white/5">
+    <div id="mobile-menu" class="lg:hidden bg-[#050505]/95 backdrop-blur-xl border-t border-white/5">
       <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col gap-4 text-sm">
         <a href="#about" class="text-[#888] hover:text-white transition-colors py-2">About</a>
         <a href="#experience" class="text-[#888] hover:text-white transition-colors py-2">Experience</a>
@@ -426,7 +454,7 @@
         <a href="#projects" class="text-[#888] hover:text-white transition-colors py-2">Projects</a>
         <a href="#achievements" class="text-[#888] hover:text-white transition-colors py-2">Achievements</a>
         <a href="mailto:rishabh.jain9196@gmail.com" class="text-blue-400 py-2">Contact</a>
-        <button id="theme-toggle-mobile" class="theme-toggle mt-2" aria-label="Toggle light/dark mode" title="Toggle theme">
+        <button id="theme-toggle-mobile" class="theme-toggle hidden mt-2" aria-label="Toggle light/dark mode" title="Toggle theme">
           <svg class="theme-icon-moon" fill="none" stroke="#facc15" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
           <svg class="theme-icon-sun" fill="none" stroke="#3b82f6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
         </button>
@@ -434,9 +462,9 @@
     </div>
   </nav>
 
-  <main>
+  <main id="main" tabindex="-1">
     <!-- ============ HERO ============ -->
-    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero" class="relative min-h-screen py-28 sm:py-24 flex items-center justify-center overflow-hidden">
       <div class="orb orb-1"></div>
       <div class="orb orb-2"></div>
       <div class="orb orb-3"></div>
@@ -453,7 +481,10 @@
         <p class="text-lg sm:text-xl text-[#888] max-w-2xl mx-auto mb-10 leading-relaxed">
           Senior Software Engineer building <span class="text-[#ccc]">performant, large-scale distributed systems</span> that serve hundreds of millions of users. Leveraging and building AI to solve real-world problems at scale.
         </p>
-        <div class="flex items-center justify-center gap-4 mb-16">
+        <div class="mb-8">
+          <a href="#projects" class="primary-button inline-flex px-6 py-3 rounded-full font-medium transition-colors">View selected work</a>
+        </div>
+        <div class="flex items-center justify-center gap-4 mb-10">
           <!-- LinkedIn -->
           <a href="https://www.linkedin.com/in/rishabh-jain-1aa9b485/" target="_blank" rel="noopener noreferrer" class="w-11 h-11 flex items-center justify-center rounded-full border border-white/10 text-[#888] hover:text-white hover:border-white/30 transition-all" aria-label="LinkedIn">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -474,26 +505,61 @@
         <!-- Stats -->
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto">
           <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 text-center">
-            <div class="text-2xl sm:text-3xl font-bold text-white" data-count="8" data-suffix="+">0</div>
+            <div class="text-2xl sm:text-3xl font-bold text-white" data-count="8" data-suffix="+">8+</div>
             <div class="text-xs text-[#666] mt-1 uppercase tracking-wider">Years Exp.</div>
           </div>
           <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 text-center">
-            <div class="text-2xl sm:text-3xl font-bold text-white" data-count="2.1" data-suffix="B+" data-decimal="true">0</div>
+            <div class="text-2xl sm:text-3xl font-bold text-white" data-count="2.1" data-suffix="B+" data-decimal="true">2.1B+</div>
             <div class="text-xs text-[#666] mt-1 uppercase tracking-wider">Events / Day</div>
           </div>
           <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 text-center">
-            <div class="text-2xl sm:text-3xl font-bold text-white" data-count="50" data-suffix="B+">0</div>
+            <div class="text-2xl sm:text-3xl font-bold text-white" data-count="50" data-suffix="B+">50B+</div>
             <div class="text-xs text-[#666] mt-1 uppercase tracking-wider">Documents</div>
           </div>
           <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 text-center">
-            <div class="text-2xl sm:text-3xl font-bold text-white" data-count="250" data-suffix="M+">0</div>
+            <div class="text-2xl sm:text-3xl font-bold text-white" data-count="250" data-suffix="M+">250M+</div>
             <div class="text-xs text-[#666] mt-1 uppercase tracking-wider">Users Served</div>
           </div>
         </div>
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 bounce-slow">
-          <svg class="w-5 h-5 text-[#444]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+      </div>
+    </section>
+
+    <section id="projects" class="py-16 relative" aria-labelledby="selected-work-title">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="reveal mb-8">
+          <h2 id="selected-work-title" class="text-3xl sm:text-4xl font-bold mb-3">Selected work</h2>
+          <p class="text-[#888]">Three published analyses, with interactive charts, methods and findings.</p>
         </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+          <article class="featured-card reveal bg-white/[0.03] border border-white/[0.1] rounded-2xl p-6">
+            <h3 class="text-lg font-bold text-white mb-3">How Delhi Buses Move in 2026</h3>
+            <p class="text-[#888] text-sm mb-4 leading-relaxed">Nine interactive charts examine six hours of GPS from 6,065 buses. Compare road speeds, service gaps and arrival-model errors.</p>
+            <p class="text-xs text-purple-300">GTFS-Realtime / pandas / LightGBM</p>
+            <div class="flex flex-wrap gap-4 mt-auto pt-5 text-sm">
+              <a href="https://rishabhjain9196.github.io/how-Delhi-buses-move/" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-400 hover:text-blue-300">Read the Delhi report</a>
+              <a href="https://github.com/rishabhjain9196/how-Delhi-buses-move" target="_blank" rel="noopener noreferrer" class="text-[#888] hover:text-white" aria-label="View the Delhi bus repository">GitHub</a>
+            </div>
+          </article>
+          <article class="featured-card reveal bg-white/[0.03] border border-white/[0.1] rounded-2xl p-6">
+            <h3 class="text-lg font-bold text-white mb-3">Legal Document RAG on LegalBench-RAG 2024</h3>
+            <p class="text-[#888] text-sm mb-4 leading-relaxed">Seven interactive charts cover 644 documents, contract-aware retrieval and ten evaluated questions. The year refers to the benchmark publication.</p>
+            <p class="text-xs text-purple-300">LangChain / Chroma / OpenAI / Ragas</p>
+            <div class="flex flex-wrap gap-4 mt-auto pt-5 text-sm">
+              <a href="https://rishabhjain9196.github.io/legal-document-rag/" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-400 hover:text-blue-300">Read the RAG report</a>
+              <a href="https://github.com/rishabhjain9196/legal-document-rag" target="_blank" rel="noopener noreferrer" class="text-[#888] hover:text-white" aria-label="View the legal document RAG repository">GitHub</a>
+            </div>
+          </article>
+          <article class="featured-card reveal bg-white/[0.03] border border-white/[0.1] rounded-2xl p-6">
+            <h3 class="text-lg font-bold text-white mb-3">NYC Yellow Taxis in 2023</h3>
+            <p class="text-[#888] text-sm mb-4 leading-relaxed">Ten interactive charts and a selectable zone map explore a 0.75% sample from 38.3 million records, covering demand, speed, fares and recorded tips.</p>
+            <p class="text-xs text-purple-300">Python / pandas / GeoPandas</p>
+            <div class="flex flex-wrap gap-4 mt-auto pt-5 text-sm">
+              <a href="https://rishabhjain9196.github.io/nyc-taxi-eda/" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-400 hover:text-blue-300">Read the NYC report</a>
+              <a href="https://github.com/rishabhjain9196/nyc-taxi-eda" target="_blank" rel="noopener noreferrer" class="text-[#888] hover:text-white" aria-label="View the NYC taxi repository">GitHub</a>
+            </div>
+          </article>
+        </div>
+        <p class="mt-6 text-sm"><a href="#more-projects" class="text-blue-400 hover:text-blue-300">Explore earlier projects and research.</a></p>
       </div>
     </section>
 
@@ -506,7 +572,7 @@
               <div class="profile-circle"></div>
               <div class="profile-clip">
                 <div class="profile-photo">
-                  <img src="images/profilepic.png" alt="Rishabh Jain" loading="lazy">
+                  <img src="images/profilepic.webp" alt="Rishabh Jain" width="400" height="400" loading="lazy" decoding="async">
                 </div>
               </div>
             </div>
@@ -907,63 +973,11 @@
     </section>
 
     <!-- ============ PROJECTS & ACHIEVEMENTS ============ -->
-    <section id="projects" class="py-24 relative">
+    <section id="more-projects" class="py-24 relative">
       <div class="max-w-6xl mx-auto px-6">
         <div class="reveal mb-16">
-          <h2 class="text-sm font-mono text-blue-400 mb-3 uppercase tracking-widest">Projects</h2>
-          <p class="text-3xl sm:text-4xl font-bold">Projects &amp; Research</p>
-        </div>
-
-        <!-- Row 0: Published reports -->
-        <div class="reveal mb-10">
-          <h3 class="text-xs font-mono text-emerald-400 uppercase tracking-widest mb-4 flex items-center gap-2">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25M9 16.5v.75m3-3v3M15 12v5.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
-            Published Reports
-          </h3>
-          <div class="achievements-scroll pb-2">
-            <div class="bg-gradient-to-br from-purple-500/[0.04] to-transparent border border-purple-500/[0.1] rounded-2xl p-5 min-w-[320px] max-w-[350px] hover:border-purple-500/[0.2] transition-all">
-              <h4 class="text-base font-bold text-white mb-2">How Delhi Buses Move in 2026</h4>
-              <p class="text-[#888] text-xs mb-3 leading-relaxed">Explore nine interactive charts from six hours of GPS on 21 October 2026. Compare road speeds, service gaps and arrival-model errors, with methods and operational conclusions.</p>
-              <div class="flex flex-wrap gap-1.5 mb-2">
-                <span class="px-2 py-0.5 text-[10px] rounded-md bg-purple-500/10 text-purple-300 border border-purple-500/20">GTFS-Realtime</span>
-                <span class="px-2 py-0.5 text-[10px] rounded-md bg-purple-500/10 text-purple-300 border border-purple-500/20">pandas</span>
-                <span class="px-2 py-0.5 text-[10px] rounded-md bg-purple-500/10 text-purple-300 border border-purple-500/20">LightGBM</span>
-                <span class="px-2 py-0.5 text-[10px] rounded-md bg-purple-500/10 text-purple-300 border border-purple-500/20">Maps</span>
-              </div>
-              <div class="flex flex-wrap gap-4 mt-3">
-                <a href="https://rishabhjain9196.github.io/how-Delhi-buses-move/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-blue-400 hover:text-blue-300 transition-colors">Read the report &rarr;</a>
-                <a href="https://github.com/rishabhjain9196/how-Delhi-buses-move" target="_blank" rel="noopener noreferrer" class="text-xs text-blue-400 hover:text-blue-300 transition-colors">GitHub</a>
-              </div>
-            </div>
-            <div class="bg-gradient-to-br from-purple-500/[0.04] to-transparent border border-purple-500/[0.1] rounded-2xl p-5 min-w-[320px] max-w-[350px] hover:border-purple-500/[0.2] transition-all">
-              <h4 class="text-base font-bold text-white mb-2">Legal Document RAG on LegalBench-RAG 2024</h4>
-              <p class="text-[#888] text-xs mb-3 leading-relaxed">Explore seven interactive charts covering 644 documents, contract-aware retrieval and ten evaluated questions. The year refers to the benchmark publication, not the contract dates.</p>
-              <div class="flex flex-wrap gap-1.5 mb-2">
-                <span class="px-2 py-0.5 text-[10px] rounded-md bg-purple-500/10 text-purple-300 border border-purple-500/20">LangChain</span>
-                <span class="px-2 py-0.5 text-[10px] rounded-md bg-purple-500/10 text-purple-300 border border-purple-500/20">Chroma</span>
-                <span class="px-2 py-0.5 text-[10px] rounded-md bg-purple-500/10 text-purple-300 border border-purple-500/20">OpenAI</span>
-                <span class="px-2 py-0.5 text-[10px] rounded-md bg-purple-500/10 text-purple-300 border border-purple-500/20">Ragas</span>
-              </div>
-              <div class="flex flex-wrap gap-4 mt-3">
-                <a href="https://rishabhjain9196.github.io/legal-document-rag/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-blue-400 hover:text-blue-300 transition-colors">Read the report &rarr;</a>
-                <a href="https://github.com/rishabhjain9196/legal-document-rag" target="_blank" rel="noopener noreferrer" class="text-xs text-blue-400 hover:text-blue-300 transition-colors">GitHub</a>
-              </div>
-            </div>
-            <div class="bg-gradient-to-br from-purple-500/[0.04] to-transparent border border-purple-500/[0.1] rounded-2xl p-5 min-w-[320px] max-w-[350px] hover:border-purple-500/[0.2] transition-all">
-              <h4 class="text-base font-bold text-white mb-2">NYC Yellow Taxis in 2023</h4>
-              <p class="text-[#888] text-xs mb-3 leading-relaxed">Explore ten interactive charts and a selectable taxi-zone map. A 0.75% sample from 38.3 million records shows demand patterns, speed, fares and recorded tips.</p>
-              <div class="flex flex-wrap gap-1.5 mb-2">
-                <span class="px-2 py-0.5 text-[10px] rounded-md bg-purple-500/10 text-purple-300 border border-purple-500/20">Python</span>
-                <span class="px-2 py-0.5 text-[10px] rounded-md bg-purple-500/10 text-purple-300 border border-purple-500/20">pandas</span>
-                <span class="px-2 py-0.5 text-[10px] rounded-md bg-purple-500/10 text-purple-300 border border-purple-500/20">GeoPandas</span>
-                <span class="px-2 py-0.5 text-[10px] rounded-md bg-purple-500/10 text-purple-300 border border-purple-500/20">EDA</span>
-              </div>
-              <div class="flex flex-wrap gap-4 mt-3">
-                <a href="https://rishabhjain9196.github.io/nyc-taxi-eda/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-blue-400 hover:text-blue-300 transition-colors">Read the report &rarr;</a>
-                <a href="https://github.com/rishabhjain9196/nyc-taxi-eda" target="_blank" rel="noopener noreferrer" class="text-xs text-blue-400 hover:text-blue-300 transition-colors">GitHub</a>
-              </div>
-            </div>
-          </div>
+          <h2 class="text-sm font-mono text-blue-400 mb-3 uppercase tracking-widest">Project archive</h2>
+          <p class="text-3xl sm:text-4xl font-bold">More Projects &amp; Research</p>
         </div>
 
         <!-- Row 1: AI & Machine Learning -->
@@ -1187,7 +1201,7 @@
             I'm always interested in discussing distributed systems, large-scale engineering challenges, or new opportunities.
           </p>
           <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="mailto:rishabh.jain9196@gmail.com" class="px-8 py-3 bg-blue-500 text-white font-medium rounded-full hover:bg-blue-400 transition-colors">
+            <a href="mailto:rishabh.jain9196@gmail.com" class="primary-button px-8 py-3 font-medium rounded-full transition-colors">
               Get in Touch
             </a>
             <a href="https://www.linkedin.com/in/rishabh-jain-1aa9b485/" target="_blank" rel="noopener noreferrer" class="px-8 py-3 bg-white/[0.05] text-[#ccc] font-medium rounded-full border border-white/[0.1] hover:bg-white/[0.1] transition-all">
@@ -1219,118 +1233,131 @@
 
   <!-- ============ SCRIPTS ============ -->
   <script>
-    // Scroll reveal with IntersectionObserver
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Navbar scroll effect
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('nav-scrolled');
-      } else {
-        navbar.classList.remove('nav-scrolled');
-      }
-    }, { passive: true });
+    const updateNavbar = () => navbar.classList.toggle('nav-scrolled', window.scrollY > 50);
+    window.addEventListener('scroll', updateNavbar, { passive: true });
+    updateNavbar();
 
-    // Mobile menu toggle
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     const openIcon = document.getElementById('menu-open-icon');
     const closeIcon = document.getElementById('menu-close-icon');
 
+    function setMenuOpen(open, returnFocus = false) {
+      mobileMenu.classList.toggle('hidden', !open);
+      openIcon.classList.toggle('hidden', open);
+      closeIcon.classList.toggle('hidden', !open);
+      menuToggle.setAttribute('aria-expanded', String(open));
+      menuToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      if (returnFocus) menuToggle.focus();
+    }
+
     menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      openIcon.classList.toggle('hidden');
-      closeIcon.classList.toggle('hidden');
+      setMenuOpen(menuToggle.getAttribute('aria-expanded') !== 'true');
     });
-
-    // Close mobile menu on link click
     mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        openIcon.classList.remove('hidden');
-        closeIcon.classList.add('hidden');
-      });
+      link.addEventListener('click', () => setMenuOpen(false));
     });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
+        event.preventDefault();
+        setMenuOpen(false, true);
+      }
+    });
+    const closeMenuOutside = event => {
+      if (!navbar.contains(event.target)) setMenuOpen(false);
+    };
+    document.addEventListener('click', closeMenuOutside);
+    document.addEventListener('focusin', closeMenuOutside);
+    matchMedia('(min-width: 1024px)').addEventListener('change', event => {
+      if (!event.matches) return;
+      const returnFocus = menuToggle.getAttribute('aria-expanded') === 'true'
+        || mobileMenu.contains(document.activeElement) || document.activeElement === menuToggle;
+      setMenuOpen(false);
+      if (returnFocus) navbar.querySelector('a').focus();
+    });
+    setMenuOpen(false);
+    menuToggle.classList.remove('hidden');
+    document.documentElement.classList.add('navigation-ready');
 
-    // Counter animation
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          const isDecimal = el.dataset.decimal === 'true';
-          const target = parseFloat(el.dataset.count);
-          const suffix = el.dataset.suffix || '';
-          const duration = 2000;
-          const startTime = performance.now();
-
-          function update(currentTime) {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            // Ease out cubic
-            const eased = 1 - Math.pow(1 - progress, 3);
-            const current = target * eased;
-
-            if (isDecimal) {
-              el.textContent = current.toFixed(1) + suffix;
-            } else {
-              el.textContent = Math.floor(current) + suffix;
-            }
-
-            if (progress < 1) {
-              requestAnimationFrame(update);
-            } else {
-              if (isDecimal) {
-                el.textContent = target.toFixed(1) + suffix;
-              } else {
-                el.textContent = target + suffix;
-              }
-            }
-          }
-          requestAnimationFrame(update);
-          counterObserver.unobserve(el);
+    const themeButtons = document.querySelectorAll('#theme-toggle, #theme-toggle-mobile');
+    function updateThemeLabels() {
+      const label = document.documentElement.classList.contains('light') ? 'Switch to dark mode' : 'Switch to light mode';
+      themeButtons.forEach(button => button.setAttribute('aria-label', label));
+    }
+    themeButtons.forEach(button => {
+      button.classList.remove('hidden');
+      button.addEventListener('click', () => {
+        const useLight = !document.documentElement.classList.contains('light');
+        document.documentElement.classList.toggle('light', useLight);
+        updateThemeLabels();
+        try {
+          localStorage.setItem('theme', useLight ? 'light' : 'dark');
+        } catch (error) {
+          console.warn('The theme works for this visit, but the preference could not be saved.', error);
         }
       });
-    }, { threshold: 0.5 });
+    });
+    updateThemeLabels();
 
-    document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+    const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+    const counters = new Map();
+    let revealObserver;
+    let counterObserver;
 
-    // Theme toggle
-    function setTheme(mode) {
-      if (mode === 'light') {
-        document.documentElement.classList.add('light');
-      } else {
-        document.documentElement.classList.remove('light');
-      }
-      var label = mode === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
-      document.querySelectorAll('#theme-toggle, #theme-toggle-mobile').forEach(function(btn) {
-        btn.setAttribute('aria-label', label);
+    if (!reducedMotion.matches && 'IntersectionObserver' in window) {
+      revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove('reveal-pending');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+      document.querySelectorAll('.reveal').forEach(element => {
+        if (element.getBoundingClientRect().top >= innerHeight) {
+          element.classList.add('reveal-pending');
+          revealObserver.observe(element);
+        }
       });
-      try { localStorage.setItem('theme', mode); } catch(e) {}
-    }
 
-    // Restore saved preference (localStorage > OS preference > dark default)
-    var saved = localStorage.getItem('theme');
-    if (saved) {
-      setTheme(saved);
-    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-      setTheme('light');
+      counterObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const element = entry.target;
+          const finalText = element.textContent;
+          const target = Number(element.dataset.count);
+          const start = performance.now();
+          const state = { frame: 0, finalText };
+          counters.set(element, state);
+          function update(now) {
+            const progress = Math.min((now - start) / 2000, 1);
+            const value = target * (1 - Math.pow(1 - progress, 3));
+            const display = element.dataset.decimal === 'true' ? value.toFixed(1) : Math.floor(value);
+            element.textContent = display + (element.dataset.suffix || '');
+            if (progress < 1) {
+              state.frame = requestAnimationFrame(update);
+            } else {
+              element.textContent = finalText;
+              counters.delete(element);
+            }
+          }
+          state.frame = requestAnimationFrame(update);
+          counterObserver.unobserve(element);
+        });
+      }, { threshold: 0.5 });
+      document.querySelectorAll('[data-count]').forEach(element => counterObserver.observe(element));
     }
-
-    // Toggle handler (both desktop and mobile)
-    document.querySelectorAll('#theme-toggle, #theme-toggle-mobile').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const isLight = document.documentElement.classList.contains('light');
-        setTheme(isLight ? 'dark' : 'light');
+    reducedMotion.addEventListener('change', event => {
+      if (!event.matches) return;
+      revealObserver?.disconnect();
+      counterObserver?.disconnect();
+      document.querySelectorAll('.reveal-pending').forEach(element => element.classList.remove('reveal-pending'));
+      counters.forEach((state, element) => {
+        cancelAnimationFrame(state.frame);
+        element.textContent = state.finalText;
       });
+      counters.clear();
     });
   </script>
 </body>

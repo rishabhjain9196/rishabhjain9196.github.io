@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#080f1c"/>
+  <rect x="72" y="70" width="64" height="6" rx="3" fill="#60a5fa"/>
+  <text x="72" y="150" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="25">MICROSOFT | PREVIOUSLY GOOGLE</text>
+  <text x="68" y="278" fill="#f8fafc" font-family="Segoe UI, Arial, sans-serif" font-size="100" font-weight="700">Rishabh Jain</text>
+  <text x="72" y="344" fill="#60a5fa" font-family="Segoe UI, Arial, sans-serif" font-size="38">Senior Software Engineer</text>
+  <text x="72" y="422" fill="#cbd5e1" font-family="Segoe UI, Arial, sans-serif" font-size="27">Distributed systems. Reliability. Applied AI.</text>
+  <path d="M72 488H1128" stroke="#334155"/>
+  <text x="72" y="551" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="24">rishabhjain9196.github.io</text>
+  <g fill="none" stroke="#60a5fa" stroke-width="3">
+    <path d="M1005 206v80h78v80"/>
+    <circle cx="1005" cy="206" r="12" fill="#080f1c"/>
+    <circle cx="1005" cy="286" r="12" fill="#080f1c"/>
+    <circle cx="1083" cy="286" r="12" fill="#080f1c"/>
+    <circle cx="1083" cy="366" r="12" fill="#080f1c"/>
+  </g>
+</svg>

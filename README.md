@@ -8,11 +8,11 @@ Source for [rishabhjain9196.github.io](https://rishabhjain9196.github.io), a res
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?logo=tailwindcss&logoColor=white)
 ![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-222222?logo=githubpages&logoColor=white)
 
-![Profile image used by the site](images/profilepic.png)
+![Profile image used by the site](images/profilepic.webp)
 
 ## Overview
 
-The site is a static page built with HTML, CSS and vanilla JavaScript, and served by GitHub Pages. It has navigation, a profile introduction, an experience timeline, skills, education, mentorship, projects, achievements and contact links.
+The site is a static page built with HTML, CSS and vanilla JavaScript, and served by GitHub Pages. The introduction leads directly to three featured reports. Experience, skills, education, mentorship, earlier projects and achievements follow.
 
 ## Structure
 
@@ -30,10 +30,13 @@ flowchart LR
 | --- | --- |
 | `index.html` | Main single-page portfolio content, navigation, sections and client-side interaction. |
 | `styles.css` | Checked-in stylesheet used by the page. |
+| `src/input.css` | Tailwind source used to regenerate the stylesheet. |
 | `tailwind.config.js` | Tailwind configuration that scans `index.html` and enables class-based light mode styling. |
 | `package.json` | Defines Tailwind build and watch scripts. |
 | `favicon.svg` | Site icon. |
-| `images/profilepic.png` | Profile image used in the page. |
+| `images/profilepic.webp` | Compressed portrait used in the page. The original PNG is retained as the source. |
+| `images/og-preview.svg` | Editable source for the 1200 by 630 social preview. |
+| `images/og-preview.png` | PNG social preview used by Open Graph and Twitter metadata. |
 
 ## Features
 
@@ -42,6 +45,9 @@ flowchart LR
 - Sticky navigation styling that changes after scrolling.
 - Animated counters for headline numbers.
 - Light and dark themes, with the choice saved in `localStorage`.
+- The menu supports Escape, focus return and accessible expanded-state announcements.
+- Content, navigation and final counter values remain available without JavaScript.
+- Reduced-motion preferences disable animation, including when the preference changes during a visit.
 
 ## Run locally
 
@@ -55,4 +61,15 @@ Then visit `http://localhost:8000`.
 
 ## Build notes
 
-The page uses the committed `styles.css`. The npm scripts build it with Tailwind from `src/input.css`, which is not in the repository, so add that file before rebuilding the stylesheet.
+The page uses the committed `styles.css`. After changing utility classes in `index.html`, rebuild it with the locked dependencies:
+
+```bash
+npm ci
+npm run build
+```
+
+Commit both the HTML changes and regenerated stylesheet. `npm run dev` watches for changes while editing.
+
+The WebP portrait was exported from the original 400 by 400 PNG at quality 85, retaining transparency. To update the social preview, edit the SVG and export it to PNG at 1200 by 630 pixels.
+
+Before publishing, check navigation and card widths from 320 to 1366 pixels, both themes, keyboard menu controls, reduced motion, disabled JavaScript and blocked storage. Confirm that the social-preview image loads and that every local anchor resolves.
