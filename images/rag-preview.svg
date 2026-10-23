@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img" aria-labelledby="title description">
+  <title id="title">Legal document RAG workflow</title>
+  <desc id="description">Select a contract, retrieve evidence from its clauses, and generate an answer with source references.</desc>
+  <rect width="800" height="500" fill="#f6f2f8"/>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="40" y="45" fill="#715880" font-size="19" font-weight="600" letter-spacing="1.2">LEGALBENCH-RAG / 2024</text>
+    <text x="40" y="101" fill="#302239" font-size="43" font-weight="700">Legal document RAG</text>
+    <path d="M40 126H760" stroke="#ded3e5" stroke-width="2"/>
+    <g fill="#ffffff" stroke="#ded3e5" stroke-width="2">
+      <rect x="40" y="157" width="210" height="239" rx="18"/>
+      <rect x="295" y="157" width="210" height="239" rx="18"/>
+      <rect x="550" y="157" width="210" height="239" rx="18"/>
+    </g>
+    <g fill="none" stroke="#9275a2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M261 270H283M275 262L283 270L275 278"/>
+      <path d="M516 270H538M530 262L538 270L530 278"/>
+    </g>
+    <g stroke="#745189" stroke-width="3" stroke-linejoin="round">
+      <rect x="91" y="197" width="70" height="90" rx="7" fill="#eee5f5"/>
+      <rect x="104" y="187" width="70" height="90" rx="7" fill="#f6f2f8"/>
+      <path d="M124 179H161L183 201V265H124Z" fill="#ffffff"/>
+      <path d="M161 179V201H183" fill="#e5d7ed"/>
+      <path d="M135 217H170M135 230H170M135 243H158" stroke-linecap="round"/>
+    </g>
+    <g fill="#eee5f5">
+      <rect x="335" y="188" width="117" height="22" rx="6"/>
+      <rect x="335" y="220" width="117" height="22" rx="6"/>
+      <rect x="335" y="252" width="77" height="22" rx="6"/>
+    </g>
+    <g fill="none" stroke="#745189" stroke-width="3" stroke-linecap="round">
+      <path d="M348 199H433M348 231H423M348 263H394"/>
+      <circle cx="433" cy="250" r="25" fill="#ffffff"/>
+      <path d="M451 268L469 286" stroke-width="7"/>
+    </g>
+    <g stroke="#745189" stroke-width="3" stroke-linejoin="round">
+      <path d="M604 184H706V254H648L627 272V254H604Z" fill="#f6f2f8"/>
+      <path d="M620 205H690M620 219H690M620 233H659" stroke-linecap="round"/>
+      <rect x="661" y="249" width="66" height="31" rx="7" fill="#745189"/>
+    </g>
+    <text x="694" y="270" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="600">Source</text>
+    <g fill="#302239" text-anchor="middle" font-size="25" font-weight="600">
+      <text x="145" y="335">Select a<tspan x="145" dy="32">contract.</tspan></text>
+      <text x="400" y="335">Retrieve<tspan x="400" dy="32">evidence.</tspan></text>
+      <text x="655" y="335">Answer with<tspan x="655" dy="32">sources.</tspan></text>
+    </g>
+    <text x="40" y="452" fill="#6a5875" font-size="21">Retrieval is scoped to the selected contract.</text>
+  </g>
+</svg>
