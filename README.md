@@ -71,6 +71,14 @@ flowchart LR
 - Content is visible by default, including without JavaScript or `IntersectionObserver`. Only eligible below-the-fold elements are hidden for a reveal.
 - Keyboard focus and direct section links reveal their targets immediately. Reduced-motion preferences disable animations and smooth scrolling, and reveal any pending content when the preference changes.
 
+## Search metadata
+
+- The homepage includes `ProfilePage` and `Person` structured data using public career and profile details. Update it when the visible role changes.
+- The homepage and workforce report have canonical URLs and social-preview metadata. Keep the workforce report metadata synchronised with its source repository.
+- `sitemap.xml` lists the homepage and four published reports on this hostname, including reports deployed from separate repositories. Update it when public report URLs change.
+- `robots.txt` allows crawling and points to the sitemap. Neither file guarantees indexing or ranking.
+- After publishing, verify the site in Google Search Console, submit the sitemap and inspect the listed URLs. Account verification must be completed by the site owner; no placeholder verification token is included.
+
 ## Run locally
 
 Open `index.html` directly in a browser, or serve the folder locally:
