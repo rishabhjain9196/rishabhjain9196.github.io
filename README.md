@@ -45,6 +45,7 @@ flowchart LR
 | `images/taxi-preview.webp` | Static preview of the NYC report's taxi-zone map. |
 | `images/heatmap-preview.webp` | Static preview of the synthetic workforce heatmap, including map attribution. |
 | `reports/workforce-heatmap-2019/` | Self-contained copy of the 2019 team project's visual report. |
+| `resume/` | Unlinked redirect to the approved PDF, displayed by the browser's PDF viewer. |
 | `images/og-preview.svg` | Editable source for the 1200 by 630 social preview. |
 | `images/og-preview.png` | PNG social preview used by Open Graph and Twitter metadata. |
 | `images/logos/` | Local company, university and contest marks. Source links are listed below. |
@@ -76,8 +77,19 @@ flowchart LR
 - The homepage includes `ProfilePage` and `Person` structured data using public career and profile details. Update it when the visible role changes.
 - The homepage and workforce report have canonical URLs and social-preview metadata. Keep the workforce report metadata synchronised with its source repository.
 - `sitemap.xml` lists the homepage and four published reports on this hostname, including reports deployed from separate repositories. Update it when public report URLs change.
-- `robots.txt` allows crawling and points to the sitemap. Neither file guarantees indexing or ranking.
+- `robots.txt` allows crawling except for the resume PDF and points to the sitemap. Neither file guarantees indexing or ranking.
 - After publishing, verify the site in Google Search Console, submit the sitemap and inspect the listed URLs. Account verification must be completed by the site owner; no placeholder verification token is included.
+
+## Unlinked resume PDF
+
+- `/resume` resolves to `/resume/`, which immediately redirects to `/resume/resume.pdf` without JavaScript. The browser's PDF viewer displays the actual document; browser preferences may instead trigger a download.
+- The redirect includes a direct PDF link as a fallback. There is no separate HTML resume or `download` attribute.
+- Do not add this route to homepage navigation, project cards or `sitemap.xml`.
+- The HTML requests `noindex, nofollow, noarchive`. Crawlers must be allowed to fetch the HTML to see these directives; only the PDF is disallowed in `robots.txt`.
+- These controls are not authentication and do not guarantee secrecy or exclusion from every search engine. Both files are publicly accessible, and repository history may retain earlier copies.
+- The owner explicitly approved including the full contact details, including the phone number. The original resume, editable Word document and private Connect source are not published.
+- When updating the resume, replace `resume/resume.pdf` with the approved PDF. Keep the redirect and search directives intact.
+- Before publishing, verify the redirect destination, `application/pdf` response type, absence of an attachment disposition, and exact parity with the approved two-page PDF.
 
 ## Run locally
 
@@ -104,7 +116,7 @@ The WebP portrait was exported from the original 400 by 400 PNG at quality 85, r
 
 Report thumbnails are 800 by 500 WebP images and load lazily. The source chart IDs are `road-map` for Delhi and `zones` for NYC. Wait until `document.documentElement.dataset.chartsReady` is `true` before capturing those charts. The RAG thumbnail is rendered from `images/rag-preview.svg`, which illustrates the documented contract-aware retrieval workflow rather than evaluation results. The workforce thumbnail uses the `map` chart and retains OpenStreetMap attribution. Resize without cropping labels, and preserve the chart background.
 
-The workforce report's source is the `docs` directory in [the heatmap repository](https://github.com/rishabhjain9196/ZomatoHack---Throttling-Error). Copy its HTML, CSS, JavaScript, CSV, SVG and WebP files into `reports/workforce-heatmap-2019` after regeneration. Keeping this static copy makes local preview and eventual portfolio deployment work without depending on a second Pages site. No private resume files are included.
+The workforce report's source is the `docs` directory in [the heatmap repository](https://github.com/rishabhjain9196/ZomatoHack---Throttling-Error). Copy its HTML, CSS, JavaScript, CSV, SVG and WebP files into `reports/workforce-heatmap-2019` after regeneration. Keeping this static copy makes local preview and eventual portfolio deployment work without depending on a second Pages site. The resume route contains only the separately approved website copy, not its private source documents.
 
 Before publishing, check navigation and card widths from 320 to 1366 pixels, both themes, keyboard menu controls, reduced motion, disabled JavaScript and blocked storage. Check scroll reveals, missing `IntersectionObserver`, font-loading failure, the menu in a short landscape viewport and direct section links. For every horizontal row, check button boundaries, keyboard controls, touch scrolling, offscreen links and resizing. Confirm that all logo images load and that every local anchor resolves. Keep professional contributions distinct from independent projects and avoid unsupported numerical outcomes.
 
